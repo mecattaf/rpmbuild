@@ -5,6 +5,7 @@ This repository contains a collection of `.spec` files for Fedora
 
 ## Dependencies 
  - `rpm-build`
+ - 'rpmdevtools'
  - `copr-cli`
 
 ## Building a Source RPM (SRPM)
