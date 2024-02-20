@@ -24,8 +24,8 @@ rpmbuild -bs --define "_srcrpmdir /var/home/dev/rpmbuild/SRPMS" /var/home/dev/rp
 ## Uploading to rpm-ostree
  For example:
 
-'''bash
+```bash
 copr-cli build mecattaf/marp-cli /var/home/dev/rpmbuild/SRPMS/marp-cli-3.4.0-1.fc38.src.rpm
-'''
+```
 
 
