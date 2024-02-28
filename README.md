@@ -29,4 +29,5 @@ rpmbuild -bs --define "_srcrpmdir /var/home/dev/rpmbuild/SRPMS" /var/home/dev/rp
 copr-cli build mecattaf/marp-cli /var/home/dev/rpmbuild/SRPMS/marp-cli-3.4.0-1.fc38.src.rpm
 ```
 
-
+## References:
+[openSuse repo](https://github.com/bmwiedemann/openSUSE/tree/master/packages)
