@@ -66,3 +66,5 @@ install -D -m 0644 "completions/%{name}.fish" "%{buildroot}/%{_datadir}/fish/ven
 %{_datadir}/fish/vendor_completions.d/%{name}.fish
 
 %changelog
+* Sat Oct 28 2023 Thomas Mecattaf <thomasmecattaf@gmail.com> - 0.0.1
+- Initial package version for chezmoi
