@@ -7,16 +7,17 @@ Group:          Development/Tools/Version Control
 URL:            https://chezmoi.io
 Source:         %{name}-%{version}.tar.gz
 Source1:        vendor.tar.gz
+Source2: go1.21.7.linux-amd64.tar.gz
 Recommends:     git
-BuildRequires:  golang(API) >= 1.18
+BuildRequires:  wget, tar, gcc
+
+%global debug_package %{nil}
 
 %description
 chezmoi is a manager for personal preference configs and state files
 ("dotfiles") that programs such as editors might create. chezmoi
 sources dotfiles from a GitHub repository and installs them onto new,
 empty machines.
-from: https://github.com/bmwiedemann/openSUSE/blob/master/packages/c/chezmoi/chezmoi.spec
-removed zsh completion
 
 %package bash-completion
 Summary:        Bash completion for %{name}
@@ -40,12 +41,20 @@ Fish command line completion support for %{name}.
 %autosetup -a 1
 
 %build
+# Extract the Go tarball
+tar -xzf %{_sourcedir}/go1.21.7.linux-amd64.tar.gz -C %{_builddir}
+
+# Set GOROOT to the extracted Go directory
+export GOROOT=%{_builddir}/go
+export PATH=$GOROOT/bin:$PATH
+
+# Now, use the local Go to build chezmoi
 go build \
         -mod=vendor \
         -buildmode=pie \
         -tags noupgrade \
         -ldflags "-X main.version=%version
-                  -X main.builtBy=build.opensuse.org"
+                  -X main.builtBy=fedora"
 
 %install
 install -D -m 0755 %{name} "%{buildroot}/%{_bindir}/%{name}"
