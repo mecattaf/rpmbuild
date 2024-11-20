@@ -29,5 +29,8 @@ rpmbuild -bs --define "_srcrpmdir /var/home/dev/rpmbuild/SRPMS" /var/home/dev/rp
 copr-cli build mecattaf/marp-cli /var/home/dev/rpmbuild/SRPMS/marp-cli-3.4.0-1.fc38.src.rpm
 ```
 
+## Maintaining the packages:
+Assuming that the package will not be maintained over time (every time there is a new fedora version), we must make sure to select `fedora-rawhide-x86_64` as part of the Build Option chroots.
+
 ## References:
 [openSuse repo](https://github.com/bmwiedemann/openSUSE/tree/master/packages)
